@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <title>Periodic Table Search</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+
+        body {
+            width: 100%;
+            font-family: "Noto Sans", sans-serif;
+            background-color: rgb(13, 12, 27);
+            font-size: 16px;
+        }
+
+        .navbar {  
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            cursor: pointer;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            text-align: center;
+        }
+
+        .navbar li {
+            margin: 0 20px;
+            display: inline-block;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            transition: 0.5s;
+        }
+
+        .navbar a:hover {
+            text-shadow: 0 0 10px #fff;
+        }
+
+        .main-container {
+            margin: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .search-container {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 30px;
+            margin-top: 40px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .search-card {
+            background-color: rgba(166, 115, 191, 0.242);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: 0.5s;
+        }
+
+        .search-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 10px hsla(0, 0%, 100%, 0.3);
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 2px solid rgb(185, 122, 227);
+            background: transparent;
+            color: white;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        button {
+            width: 200px;
+            padding: 15px 0;
+            text-align: center;
+            margin: 20px 10px;
+            border-radius: 25px;
+            font-weight: bold;
+            border: 2px solid rgb(185, 122, 227);
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        button:hover {
+            box-shadow: 0 0 8px hsla(0, 0%, 100%, 0.3);
+        }
+
+        .result-card {
+            background-color: rgba(166, 115, 191, 0.242);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .blocks-container {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 30px;
+            margin-top: 40px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .block-card {
+            background-color: rgba(45, 46, 45, 0.463);
+            border-radius: 8px;
+            width: 380px;
+            height: 220px;
+            border: 2px double white;
+            overflow: hidden;
+            transition: 0.5s;
+        }
+
+        .block-card:hover {
+            transform: translateY(-9px);
+            box-shadow: 0 0 10px hsla(0, 0%, 100%, 0.3);
+        }
+
+        .block-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        footer {
+            background-color: rgb(45, 45, 45);
+            color: white;
+            padding: 40px 50px;
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 0;
+        }
+
+        .footer-content p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1rem;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <video class="logo" loop autoplay muted>
+            <source src="Catalyst.mp4" type="video/mp4">
+            <source src="Catalyst.webm" type="video/webm">
+            <source src="Catalyst.ogg" type="video/ogg">
+        </video>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Periodic Table Simulator.html">Periodic Table</a></li>
+            <li><a href="card-main.html">Flashcards</a></li>
+            <li><a href="#">Calculator</a></li>
+        </ul>
+    </div>
+    <div class="main-container">
+        <h2>Periodic Table Search</h2>
+        
+        <div class="search-container">
+            <div class="search-card">
+                <h3>Search by Atomic Number</h3>
+                <input type="number" id="atomicNumber" placeholder="Enter atomic number" min="1" max="118">
+                <button onclick="searchByAN()">Search</button>
+            </div>
+
+            <div class="search-card">
+                <h3>Search by Symbol</h3>
+                <input type="text" id="symbol" placeholder="Enter element symbol">
+                <button onclick="searchBySymbol()">Search</button>
+            </div>
+        </div>
+
+        <div id="result" class="result-card">
+            <h3>Search Result</h3>
+            <p id="resultText"></p>
+        </div>
+<!-- 
+        <div class="blocks-container">
+            <div class="block-card">
+                <img src="sblock.png" alt="S-Block Elements">
+            </div>
+            <div class="block-card">
+                <img src="pblock.jpg" alt="P-Block Elements">
+            </div>
+        </div> -->
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2024 Chemistry Learning Platform. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    const elements = [
+        {an: 1, symbol: "H", name: "Hydrogen", am: 1.008},
+        {an: 2, symbol: "He", name: "Helium", am: 4.0026},
+        {an: 3, symbol: "Li", name: "Lithium", am: 6.94},
+        {an: 4, symbol: "Be", name: "Beryllium", am: 9.0122},
+        {an: 5, symbol: "B", name: "Boron", am: 10.81},
+        {an: 6, symbol: "C", name: "Carbon", am: 12.011},
+        {an: 7, symbol: "N", name: "Nitrogen", am: 14.007},
+        {an: 8, symbol: "O", name: "Oxygen", am: 15.999},
+        {an: 9, symbol: "F", name: "Fluorine", am: 18.998},
+        {an: 10, symbol: "Ne", name: "Neon", am: 20.180},
+        {an: 11, symbol: "Na", name: "Sodium", am: 22.990},
+        {an: 12, symbol: "Mg", name: "Magnesium", am: 24.305},
+        {an: 13, symbol: "Al", name: "Aluminium", am: 26.982},
+        {an: 14, symbol: "Si", name: "Silicon", am: 28.085},
+        {an: 15, symbol: "P", name: "Phosphorus", am: 30.974},
+        {an: 16, symbol: "S", name: "Sulfur", am: 32.06},
+        {an: 17, symbol: "Cl", name: "Chlorine", am: 35.45},
+        {an: 18, symbol: "Ar", name: "Argon", am: 39.948},
+        {an: 19, symbol: "K", name: "Potassium", am: 39.098},
+        {an: 20, symbol: "Ca", name: "Calcium", am: 40.078},
+        {an: 21, symbol: "Sc", name: "Scandium", am: 44.956},
+        {an: 22, symbol: "Ti", name: "Titanium", am: 47.867},
+        {an: 23, symbol: "V", name: "Vanadium", am: 50.942},
+        {an: 24, symbol: "Cr", name: "Chromium", am: 51.996},
+        {an: 25, symbol: "Mn", name: "Manganese", am: 54.938},
+        {an: 26, symbol: "Fe", name: "Iron", am: 55.845},
+        {an: 27, symbol: "Co", name: "Cobalt", am: 58.933},
+        {an: 28, symbol: "Ni", name: "Nickel", am: 58.693},
+        {an: 29, symbol: "Cu", name: "Copper", am: 63.546},
+        {an: 30, symbol: "Zn", name: "Zinc", am: 65.38},
+        {an: 31, symbol: "Ga", name: "Gallium", am: 69.723},
+        {an: 32, symbol: "Ge", name: "Germanium", am: 72.630},
+        {an: 33, symbol: "As", name: "Arsenic", am: 74.922},
+        {an: 34, symbol: "Se", name: "Selenium", am: 78.971},
+        {an: 35, symbol: "Br", name: "Bromine", am: 79.904},
+        {an: 36, symbol: "Kr", name: "Krypton", am: 83.798},
+        {an: 37, symbol: "Rb", name: "Rubidium", am: 85.468},
+        {an: 38, symbol: "Sr", name: "Strontium", am: 87.62},
+        {an: 39, symbol: "Y", name: "Yttrium", am: 88.906},
+        {an: 40, symbol: "Zr", name: "Zirconium", am: 91.224},
+        {an: 41, symbol: "Nb", name: "Niobium", am: 92.906},
+        {an: 42, symbol: "Mo", name: "Molybdenum", am: 95.95},
+        {an: 43, symbol: "Tc", name: "Technetium", am: 98.000},
+        {an: 44, symbol: "Ru", name: "Ruthenium", am: 101.07},
+        {an: 45, symbol: "Rh", name: "Rhodium", am: 102.91},
+        {an: 46, symbol: "Pd", name: "Palladium", am: 106.42},
+        {an: 47, symbol: "Ag", name: "Silver", am: 107.87},
+        {an: 48, symbol: "Cd", name: "Cadmium", am: 112.41},
+        {an: 49, symbol: "In", name: "Indium", am: 114.82},
+        {an: 50, symbol: "Sn", name: "Tin", am: 118.71},
+        {an: 51, symbol: "Sb", name: "Antimony", am: 121.76},
+        {an: 52, symbol: "Te", name: "Tellurium", am: 127.60},
+        {an: 53, symbol: "I", name: "Iodine", am: 126.90},
+        {an: 54, symbol: "Xe", name: "Xenon", am: 131.29},
+        {an: 55, symbol: "Cs", name: "Cesium", am: 132.91},
+        {an: 56, symbol: "Ba", name: "Barium", am: 137.33},
+        {an: 57, symbol: "La", name: "Lanthanum", am: 138.91},
+        {an: 58, symbol: "Ce", name: "Cerium", am: 140.12},
+        {an: 59, symbol: "Pr", name: "Praseodymium", am: 140.91},
+        {an: 60, symbol: "Nd", name: "Neodymium", am: 144.24},
+        {an: 61, symbol: "Pm", name: "Promethium", am: 145.00},
+        {an: 62, symbol: "Sm", name: "Samarium", am: 150.36},
+        {an: 63, symbol: "Eu", name: "Europium", am: 151.96},
+        {an: 64, symbol: "Gd", name: "Gadolinium", am: 157.25},
+        {an: 65, symbol: "Tb", name: "Terbium", am: 158.93},
+        {an: 66, symbol: "Dy", name: "Dysprosium", am: 162.50},
+        {an: 67, symbol: "Ho", name: "Holmium", am: 164.93},
+        {an: 68, symbol: "Er", name: "Erbium", am: 167.26},
+        {an: 69, symbol: "Tm", name: "Thulium", am: 168.93},
+        {an: 70, symbol: "Yb", name: "Ytterbium", am: 173.05},
+        {an: 71, symbol: "Lu", name: "Lutetium", am: 174.97},
+        {an: 72, symbol: "Hf", name: "Hafnium", am: 178.49},
+        {an: 73, symbol: "Ta", name: "Tantalum", am: 180.95},
+        {an: 74, symbol: "W", name: "Tungsten", am: 183.84},
+        {an: 75, symbol: "Re", name: "Rhenium", am: 186.21},
+        {an: 76, symbol: "Os", name: "Osmium", am: 190.23},
+        {an: 77, symbol: "Ir", name: "Iridium", am: 192.22},
+        {an: 78, symbol: "Pt", name: "Platinum", am: 195.08},
+        {an: 79, symbol: "Au", name: "Gold", am: 196.97},
+        {an: 80, symbol: "Hg", name: "Mercury", am: 200.59},
+        {an: 81, symbol: "Tl", name: "Thallium", am: 204.38},
+        {an: 82, symbol: "Pb", name: "Lead", am: 207.2},
+        {an: 83, symbol: "Bi", name: "Bismuth", am: 208.98},
+        {an: 84, symbol: "Po", name: "Polonium", am: 209.00},
+        {an: 85, symbol: "At", name: "Astatine", am: 210.00},
+        {an: 86, symbol: "Rn", name: "Radon", am: 222.00},
+        {an: 87, symbol: "Fr", name: "Francium", am: 223.00},
+        {an: 88, symbol: "Ra", name: "Radium", am: 226.00},
+        {an: 89, symbol: "Ac", name: "Actinium", am: 227.00},
+        {an: 90, symbol: "Th", name: "Thorium", am: 232.04},
+        {an: 91, symbol: "Pa", name: "Protactinium", am: 231.04},
+        {an: 92, symbol: "U", name: "Uranium", am: 238.03},
+        {an: 93, symbol: "Np", name: "Neptunium", am: 237.00},
+        {an: 94, symbol: "Pu", name: "Plutonium", am: 244.00},
+        {an: 95, symbol: "Am", name: "Americium", am: 243.00},
+        {an: 96, symbol: "Cm", name: "Curium", am: 247.00},
+        {an: 97, symbol: "Bk", name: "Berkelium", am: 247.00},
+        {an: 98, symbol: "Cf", name: "Californium", am: 251.00},
+        {an: 99, symbol: "Es", name: "Einsteinium", am: 252.00},
+        {an: 100, symbol: "Fm", name: "Fermium", am: 257.00},
+        {an: 101, symbol: "Md", name: "Mendelevium", am: 258.00},
+        {an: 102, symbol: "No", name: "Nobelium", am: 259.00},
+        {an: 103, symbol: "Lr", name: "Lawrencium", am: 262.00},
+        {an: 104, symbol: "Rf", name: "Rutherfordium", am: 267.00},
+        {an: 105, symbol: "Db", name: "Dubnium", am: 268.00},
+        {an: 106, symbol: "Sg", name: "Seaborgium", am: 269.00},
+        {an: 107, symbol: "Bh", name: "Bohrium", am: 270.00},
+        {an: 108, symbol: "Hs", name: "Hassium", am: 269.00},
+        {an: 109, symbol: "Mt", name: "Meitnerium", am: 278.00},
+        {an: 110, symbol: "Ds", name: "Darmstadtium", am: 281.00},
+        {an: 111, symbol: "Rg", name: "Roentgenium", am: 282.00},
+        {an: 112, symbol: "Cn", name: "Copernicium", am: 285.00},
+        {an: 113, symbol: "Nh", name: "Nihonium", am: 286.00},
+        {an: 114, symbol: "Fl", name: "Flerovium", am: 289.00},
+        {an: 115, symbol: "Mc", name: "Moscovium", am: 290.00},
+        {an: 116, symbol: "Lv", name: "Livermorium", am: 293.00},
+        {an: 117, symbol: "Ts", name: "Tennessine", am: 294.00},
+        {an: 118, symbol: "Og", name: "Oganesson", am: 294.00}
+    ];
+
+    function searchByAN() {
+        const an = Number(document.getElementById("atomicNumber").value);
+        const element = elements.find(e => e.an === an);
+        displayResult(element);
+    }
+
+    function searchBySymbol() {
+        const symbol = document.getElementById("symbol").value.trim();
+        const element = elements.find(e => e.symbol.toLowerCase() === symbol.toLowerCase());
+        displayResult(element);
+    }
+
+    function displayResult(element) {
+        const resultText = document.getElementById("resultText");
+        if (element) {
+            resultText.innerHTML = `
+                <p style="font-size: 1.2em; margin: 10px;">${element.name}</p>
+                <p style="margin: 5px;">Atomic Number: ${element.an}</p>
+                <p style="margin: 5px;">Symbol: ${element.symbol}</p>
+                <p style="margin: 5px;">Atomic Mass: ${element.am}</p>
+            `;
+        } else {
+            resultText.innerHTML = "<p style='font-size: 1.2em;'>Element not found</p>";
+        }
+    }
+    </script>
+</body>
+</html>

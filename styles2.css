@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    color:white;
+}
+
+body {
+    width:100%;
+    font-family: "Noto Sans", sans-serif;
+    background-color: rgb(13, 12, 27);
+    font-size:16px;
+}
+
+.nav-container {
+    height: 120px;
+    justify-content: space-between;
+    padding:0;
+    margin:0 40px;
+}
+
+.navbar {  
+    padding: 16px;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.logo {
+    width: 120px;
+    height:120px;
+    cursor:pointer;
+}
+
+
+.navbar ul{
+    list-style-type:none;
+    text-align: center;
+}
+
+.navbar li {
+    margin: 0 20px;
+    display: inline-block;
+}
+
+button{
+    width:200px;
+    padding: 15px 0;
+text-align:center;
+margin: 20px 10px;
+border-radius: 25px;
+font-weight: bold;
+border: 2px solid rgb(185, 122, 227);
+
+background:transparent;
+color:white;
+cursor: pointer;
+}
+
+button:hover {
+    transition: 0.5s; /* Smooth effect */
+    box-shadow: 0 0 10px #fff;
+}
+
+.navbar a:hover{
+    transition: 0.5s; /* Smooth effect */
+    text-shadow: 0 0 10px #fff;
+}
+
+
+button{
+    width:200px;
+    padding: 15px 0;
+    text-align:center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid rgb(185, 122, 227);
+    background:transparent;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.reaction-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+    gap: 30px;
+    margin-top: 40px;
+    text-align: center;
+
+}
+
+button:hover {
+    transition: 0.5s; /* Smooth effect */
+    box-shadow: 0 0 8px hsla(0, 0%, 100%,0.3);
+}
+
+.categories {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin:30px;
+    width:380px;
+    height: 220px;
+    border:2px double white;
+    background-color: rgba(45, 46, 45, 0.463);
+    box-sizing: border-box; 
+    overflow: hidden;
+}
+
+.one {
+    background-color: rgba(255, 0, 191, 0.463);
+}
+.two {
+    background-color: rgba(1, 39, 255, 0.463);
+}
+ .three {
+    background-color: rgba(187, 0, 255, 0.463);
+}
+
+.categories:hover {
+    cursor: pointer;
+    transition: 0.5s; /* Smooth effect */
+    box-shadow: 0 0 10px hsla(0, 0%, 100%,0.3);  
+    text-shadow: 0 0 10px #ffffff6a; 
+    transform: translateY(-9px);
+}
+
+
+footer {
+    background-color: rgb(45, 45, 45);
+    color: white;
+    padding: 40px 50px;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 0;
+}
+
+.footer-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1rem;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.flash-main {
+    margin:80px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.flashcards-container {
+    display:grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.flashcard .card .front {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    align-items: center;
+    padding: 20px;
+}
+
+.flashcard {
+    max-width: 400px;
+    border-radius: 20px;
+    text-align: center;
+    background-color: rgba(166, 115, 191, 0.242);
+    height: 350px;
+    position: relative;
+    perspective: 1000px;
+}
+
+.card {
+    max-width: 400px;
+    border-radius: 20px 20px 0 0;
+    width:100%;
+    height:250px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+    background-color: rgba(255, 192, 203, 0.349);
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.front, .back {
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+button.flip-btn {
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    opacity: 0.8;
+    margin-bottom: 10px;
+}
+
+
