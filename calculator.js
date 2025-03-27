@@ -94,3 +94,4 @@ function calculate() {
 
     document.getElementById("result").innerText = result.toFixed(3);
 }
+
