@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solution Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+
+    <div class="nav-container">
+        <div class="navbar">
+            <video class="logo" loop autoplay>
+                <source src="Catalyst.mp4" type="video/mp4">
+                <source src="Catalyst.webm" type="video/webm">
+                <source src="Catalyst.ogg" type="video/ogg">
+            </video>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Periodic Table Simulator.html">Periodic Table</a></li>
+                <li><a href="card-main.html">Flashcards</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="header">
+            <h1>Solution Calculator</h1>
+            <p>Calculate different types of solution concentrations</p>
+        </div>
+        
+        <div class="content-container">
+            <div class="card-container">
+                <div class="card molarity" onclick="openForm('molarity')">
+                    <div class="card-content">
+                        <h2>Molarity</h2>
+                        <p>Calculate concentration in moles per liter</p>
+                    </div>
+                </div>
+                <div class="card molality" onclick="openForm('molality')">
+                    <div class="card-content">
+                        <h2>Molality</h2>
+                        <p>Calculate concentration in moles per kilogram</p>
+                    </div>
+                </div>
+                <div class="card normality" onclick="openForm('normality')">
+                    <div class="card-content">
+                        <h2>Normality</h2>
+                        <p>Calculate concentration in equivalents per liter</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="calc-form" class="form-container hidden">
+                <div class="form-header">
+                    <h2 id="calc-title"></h2>
+                    <button class="close-button" onclick="closeForm()">×</button>
+                </div>
+                <div class="form-content">
+                    <div id="form-fields"></div>
+                    <button class="calculate-button" onclick="calculate()">Calculate</button>
+                    <div class="result-container">
+                        <p><strong>Result:</strong> <span id="result"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="calculator.js"></script>
+</body>
+</html>
+
