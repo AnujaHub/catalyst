@@ -1,8 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    color: white;
 }
 
 body {
@@ -13,7 +12,6 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .nav-container {
@@ -47,6 +45,17 @@ body {
     display: inline-block;
 }
 
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.navbar a:hover {
+    transition: 0.5s;
+    text-shadow: 0 0 10px #fff;
+}
+
 .main-container {
     width: 100%;
     max-width: 1200px;
@@ -54,6 +63,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 80px auto;
 }
 
 .header {
@@ -68,7 +78,7 @@ body {
 }
 
 .header p {
-    color: #a0a0a0;
+    color: rgba(255, 255, 255, 0.7);
     font-size: 1.1rem;
 }
 
@@ -87,56 +97,65 @@ body {
 }
 
 .card {
-    width: 300px;
-    border-radius: 15px;
+    width: 380px;
+    height: 220px;
+    border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
     overflow: hidden;
     position: relative;
+    border: 2px double white;
+    background-color: rgba(45, 46, 45, 0.463);
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-9px);
+    box-shadow: 0 0 10px hsla(0, 0%, 100%, 0.3);
+    text-shadow: 0 0 10px #ffffff6a;
 }
 
 .card-content {
     padding: 2rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .card h2 {
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-bottom: 1rem;
 }
 
 .card p {
     color: rgba(255, 255, 255, 0.9);
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.5;
 }
 
 .molarity {
-    background: linear-gradient(135deg, #ff6b6b, #ff4757);
+    background-color: rgba(255, 0, 191, 0.463);
 }
 
 .molality {
-    background: linear-gradient(135deg, #4834d4, #686de0);
+    background-color: rgba(1, 39, 255, 0.463);
 }
 
 .normality {
-    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    background-color: rgba(187, 0, 255, 0.463);
 }
 
 .form-container {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
+    background-color: rgba(45, 46, 45, 0.463);
+    border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 2px double white;
+    backdrop-filter: blur(10px);
 }
 
 .form-header {
@@ -144,7 +163,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.05);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -178,18 +197,17 @@ body {
     width: 100%;
     padding: 0.75rem;
     margin-bottom: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
+    border: 2px solid rgb(185, 122, 227);
+    border-radius: 25px;
     font-size: 1rem;
-    background: rgba(255, 255, 255, 0.1);
+    background: transparent;
     color: white;
     transition: all 0.3s ease;
 }
 
 .form-container input:focus {
     outline: none;
-    border-color: #1a73e8;
-    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 8px hsla(0, 0%, 100%, 0.3);
 }
 
 .form-container input::placeholder {
@@ -197,26 +215,28 @@ body {
 }
 
 .calculate-button {
-    background: #1a73e8;
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px auto;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid rgb(185, 122, 227);
+    background: transparent;
     color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
     cursor: pointer;
-    font-size: 1rem;
-    width: 100%;
-    margin-top: 1rem;
-    transition: background-color 0.3s ease;
+    display: block;
+    transition: 0.5s;
 }
 
 .calculate-button:hover {
-    background: #1557b0;
+    box-shadow: 0 0 8px hsla(0, 0%, 100%, 0.3);
 }
 
 .result-container {
     margin-top: 1.5rem;
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.05);
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -231,9 +251,39 @@ body {
     display: none;
 }
 
+footer {
+    background-color: rgb(45, 45, 45);
+    color: white;
+    padding: 40px 50px;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 0;
+}
+
+.footer-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1rem;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
 @media (max-width: 768px) {
     .main-container {
         padding: 1rem;
+        margin: 40px auto;
     }
     
     .card-container {
@@ -243,7 +293,7 @@ body {
     
     .card {
         width: 100%;
-        max-width: 300px;
+        max-width: 380px;
     }
     
     .form-content {
